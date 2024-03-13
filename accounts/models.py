@@ -7,7 +7,7 @@ from accounts.managers import UserManager
 class User(AbstractUser):
     email = models.EmailField(unique=True, blank=False,
                               error_messages={
-                                  'unique': "A user with that email already exists.",
+                                  'unique': "This email is already used by an account!",
                               })
 
     USERNAME_FIELD = "email"

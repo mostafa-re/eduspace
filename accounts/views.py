@@ -2,7 +2,6 @@ from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect, get_object_or_404
-# Create your views here.
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, FormView, RedirectView, ListView, DetailView, UpdateView
