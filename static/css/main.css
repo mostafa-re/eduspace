@@ -16,10 +16,12 @@ html {
 }
 
 body {
+    position: relative;
+    min-height: 100vh;
     font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
     padding-right: 0 !important;
     color: #29303b;
-    font-size: 15px;
 }
 
 body.white-bg {
@@ -4100,10 +4102,13 @@ section.purchase-history-list-area {
 }
 
 .footer-area {
-    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     padding: 30px 0;
     border-bottom: 6px solid #ec5252;
     border-top: 1px solid #e8e9eb;
+    background-color: #fff;
 }
 
 .copyright-text {
