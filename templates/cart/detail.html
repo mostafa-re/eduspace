@@ -43,7 +43,7 @@
                                                     <div class="cart-course-wrapper">
                                                         <div class="image">
                                                             <a href="">
-                                                                <img src="{% static 'img/banner_pattern.svg' %}" alt=""
+                                                                <img src="{{ course.thumbnail.url }}" alt=""
                                                                      class="img-fluid">
                                                             </a>
                                                         </div>
@@ -93,7 +93,8 @@
                         </div>
                     </div>
                 {% else %}
-                    <div class="title">Cart is empty</div>
+                    <i class="fas fa-times-circle d-inline"></i>
+                    <span class="title">Your cart is empty by now.</span>
                 {% endif %}
             {% endwith %}
         </div>
