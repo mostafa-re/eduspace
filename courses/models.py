@@ -7,6 +7,9 @@ from accounts.models import User
 
 
 class Category(models.Model):
+    class Meta:
+        verbose_name_plural = "categories"
+        
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=200, unique=True)
 
