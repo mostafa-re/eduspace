@@ -45,7 +45,16 @@
                             {% endwith %}
                         {% endfor %}
                     {% else %}
-                        Your cart is empty.
+                    <li>
+                        <div class="item clearfix">
+                            <div class="item-details">
+                                <i class="fas fa-times-circle d-inline"></i>
+                                <span class="course-name">
+                                    Your cart is empty by now.
+                                </span>
+                            </div>
+                        </div>
+                    </li>
                     {% endif %}
                 {% endwith %}
             </ul>
@@ -61,7 +70,7 @@
         </div>
     </div>
     <div class="empty-box text-center d-none">
-        <p>Your cart is empty.</p>
+        <p>Your cart is empty by now.</p>
         <a href="">Keep Shopping</a>
     </div>
 </div>
