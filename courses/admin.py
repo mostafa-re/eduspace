@@ -16,7 +16,15 @@ class CourseAdmin(admin.ModelAdmin):
     fieldsets = [
         (
             None,
-            {"fields": ["is_published", "title", "category", "short_description"]},
+            {
+                "fields": [
+                    "is_published",
+                    "user",
+                    "title",
+                    "category",
+                    "short_description",
+                ]
+            },
         ),
         (
             "Media",
