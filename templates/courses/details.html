@@ -67,7 +67,7 @@
                                     {{ course.lessons.count }} lesson{{ course.lessons.count|pluralize }}
                                 </span>
                                 <span class="total-time">
-                                    {{ course.lessons|td_total|td_minutes }} minute{{ course.lessons|td_total|td_minutes|pluralize }}
+                                    {{ course.lessons|td_total|td_hours_minutes }} in total
                                 </span>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                              {{ course.lessons.count }} lesson{{ course.lessons.count|pluralize }}
                                         </span>
                                         <span class="total-time">
-                                            {{ course.lessons|td_total|td_minutes }} minute(s)
+                                            {{ course.lessons|td_total|td_hours_minutes }} in total
                                         </span>
                                     </div>
                                 </div>
