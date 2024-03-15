@@ -1,7 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% load humanize %}
-{% load total_minutes %}
+{% load timedelta_filters %}
 
 {% block content %}
 
@@ -64,10 +64,10 @@
                             <div class="title float-left">Lessons for this course</div>
                             <div class="float-right">
                                 <span class="total-lectures">
-                                    {{ course.lessons.count }} lessons
+                                    {{ course.lessons.count }} lesson{{ course.lessons.count|pluralize }}
                                 </span>
                                 <span class="total-time">
-                                    2 hours
+                                    {{ course.lessons|td_total|td_minutes }} minute{{ course.lessons|td_total|td_minutes|pluralize }}
                                 </span>
                             </div>
                         </div>
@@ -82,10 +82,10 @@
                                     </div>
                                     <div class="float-right">
                                         <span class="total-lectures">
-                                             {{ course.lessons.count }} lessons
+                                             {{ course.lessons.count }} lesson{{ course.lessons.count|pluralize }}
                                         </span>
                                         <span class="total-time">
-                                            {{ course.lessons|total_minutes | floatformat:2 }} minute
+                                            {{ course.lessons|td_total|td_minutes }} minute(s)
                                         </span>
                                     </div>
                                 </div>
@@ -95,7 +95,9 @@
                                         {% for lesson in course.lessons.all %}
                                             <li class="lecture has-preview">
                                                 <span class="lecture-title">{{ lesson.title }}</span>
-                                                <span class="lecture-time float-right">{{ lesson.duration | floatformat:2 }}</span>
+                                                <span class="lecture-time float-right">
+                                                    {{ lesson.duration|td_hours_minutes }}
+                                                </span>
                                                 <!-- <span class="lecture-preview float-right" data-toggle="modal" data-target="#CoursePreviewModal">Preview</span> -->
                                             </li>
                                         {% endfor %}
@@ -321,16 +323,15 @@
                                 <div class="title"><b>Includes:</b></div>
                                 <ul>
                                     <li>
-                                        <i class="far fa-file-video"></i>
-                                        on demand videos
+                                        <i class="far fa-file-video"></i> on demand videos
                                     </li>
                                     <li>
-                                        <i class="far fa-file"></i> 30 lessons
+                                        <i class="far fa-file"></i> {{ course.lessons.count }} lesson{{ course.lessons.count|pluralize }}
                                     </li>
-                                    <li><i class="far fa-compass"></i>Full lifetime access
+                                    <li><i class="far fa-compass"></i> Full lifetime access
                                     </li>
                                     <li>
-                                        <i class="fas fa-mobile-alt"></i>Access on mobile and tv
+                                        <i class="fas fa-mobile-alt"></i> Access on mobile and tv
                                     </li>
                                 </ul>
                             </div>
