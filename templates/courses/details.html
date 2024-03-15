@@ -15,14 +15,14 @@
                         <div class="rating-row">
                             {#                            {{ --<span class="course-badge best-seller">Best seller</span>--}}#}
                             {% for i in i|rjust:5 %}
-                                {% if forloop.counter <= 5 %}
+                                {% if forloop.counter <= 4 %}
                                     <i class="fas fa-star filled" style="color: #f5c85b;"></i>
                                 {% else %}
                                     <i class="fas fa-star"></i>
                                 {% endif %}
                             {% endfor %}
-                            <span class="d-inline-block average-rating">5</span>
-                            <span>(20 ratings)</span>
+                            <span class="d-inline-block average-rating">4</span>
+                            <span>(2 ratings)</span>
                             <span class="enrolled-num">
                                 100 students enrolled
                             </span>
@@ -126,12 +126,14 @@
                     </div>
 
 
-                    <div class="compare-box view-more-parent">
-                        <div class="view-more" onclick="viewMore(this)">+ View More</div>
+                    <div class="compare-box">
                         <div class="compare-title">Other Related Courses</div>
                         <div class="compare-courses-wrap">
-
+                            <ul>
+                                <li>Not found any related courses.</li>
+                            </ul>
                         </div>
+                        </div
                     </div>
 
                     <div class="about-instructor-box">
@@ -163,16 +165,15 @@
                                 </div>
                             </div>
                             <div class="col-lg-8">
-                                <div class="about-instructor-details view-more-parent">
-                                    <div class="view-more" onclick="viewMore(this)">+ View More</div>
+                                <div class="about-instructor-details">
                                     <div class="instructor-name">
                                         <a href=""></a>
                                     </div>
                                     <div class="instructor-title">
-                                        title
+                                        Instructor name
                                     </div>
                                     <div class="instructor-bio">
-                                        biography
+                                        Biography
                                     </div>
                                 </div>
                             </div>
@@ -187,12 +188,11 @@
                             <div class="col-lg-6 col-lg-offset-4">
                                 <div class="average-rating">
                                     <div class="num">
-                                        {#                                        {{ $course->average }}#}
-                                        3
+                                        4
                                     </div>
                                     <div class="rating">
                                         {% for i in i|rjust:5 %}
-                                            {% if forloop.counter <= 5 %}
+                                            {% if forloop.counter <= 4 %}
                                                 <i class="fas fa-star filled" style="color: #f5c85b;"></i>
                                             {% else %}
                                                 <i class="fas fa-star" style="color: #abb0bb;"></i>
@@ -251,7 +251,7 @@
                                             <div class="review-details">
                                                 <div class="rating">
                                                     {% for i in i|rjust:5 %}
-                                                        {% if forloop.counter <= 5 %}
+                                                        {% if forloop.counter <= 4 %}
                                                             <i class="fas fa-star filled" style="color: #f5c85b;"></i>
                                                         {% else %}
                                                             <i class="fas fa-star" style="color: #abb0bb;"></i>
