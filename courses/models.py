@@ -2,6 +2,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.utils.text import slugify
 from django.utils.timezone import now
+from datetime import timedelta
 
 from accounts.models import User
 
@@ -31,7 +32,7 @@ class Course(models.Model):
     outcome = models.CharField(max_length=200)
     requirements = models.CharField(max_length=200)
     language = models.CharField(max_length=200)
-    price = models.FloatField(validators=[MinValueValidator(9.99)])
+    price = models.FloatField(validators=[MinValueValidator(0.99)])
     level = models.CharField(max_length=20)
     thumbnail = models.ImageField(upload_to='thumbnails/')
     video_url = models.CharField(max_length=100)
@@ -50,7 +51,7 @@ class Course(models.Model):
 class Lesson(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='lessons')
     title = models.CharField(max_length=100)
-    duration = models.FloatField(validators=[MinValueValidator(0.30), MaxValueValidator(30.00)])
+    duration = models.DurationField(validators=[MinValueValidator(timedelta(seconds=1)), MaxValueValidator(timedelta(days=1))])
     video_url = models.CharField(max_length=100)
     created_at = models.DateTimeField(default=now)
     updated_at = models.DateTimeField(default=now)
